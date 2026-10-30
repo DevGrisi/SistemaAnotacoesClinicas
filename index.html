@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Procedimentos</title>
+
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- =====================================================
+             CABEÇALHO
+        ====================================================== -->
+        <header class="topbar">
+
+            <div class="logo">
+                <div class="logo-icon">🩺</div>
+
+                <div class="logo-text">
+                    <strong>Sistema</strong>
+                    <span>Procedimentos</span>
+                </div>
+            </div>
+
+            <div class="search">
+                <span>🔎</span>
+                <input
+                    type="search"
+                    id="pesquisaProcedimento"
+                    placeholder="Pesquisar procedimento..."
+                    autocomplete="off"
+                >
+            </div>
+
+            <div class="user">
+                <div class="avatar">R</div>
+                <div class="user-info">
+                    <strong>Rafael</strong>
+                    <small>Administrador</small>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             ESTRUTURA PRINCIPAL
+        ====================================================== -->
+        <div class="layout">
+
+            <!-- MENU LATERAL -->
+            <aside class="sidebar">
+
+                <div class="sidebar-title">
+                    <small>NAVEGAÇÃO</small>
+                    <h2>Categorias</h2>
+                </div>
+
+                <button class="home-nav-button active" type="button" id="botaoInicio">
+                    <span>🏠</span>
+                    <span>Início</span>
+                </button>
+
+                <nav class="tree" aria-label="Categorias de procedimentos">
+
+                    <!-- NUTRIÇÃO -->
+                    <div class="tree-group">
+                        <button class="tree-button tree-toggle" type="button" data-toggle="nutricao-itens" aria-expanded="true">
+                            <span class="tree-arrow">▼</span>
+                            <span>🥗</span>
+                            <span>Nutrição</span>
+                        </button>
+
+                        <div class="children open" id="nutricao-itens">
+                            <button class="tree-button tree-procedure" type="button" data-procedure="dieta-oral" data-search-item>
+                                <span class="tree-bullet">•</span>
+                                <span>Dieta oral</span>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <!-- HIGIENE -->
+                    <div class="tree-group">
+                        <button class="tree-button tree-toggle" type="button" data-toggle="higiene-itens" aria-expanded="true">
+                            <span class="tree-arrow">▼</span>
+                            <span>🧼</span>
+                            <span>Higiene</span>
+                        </button>
+
+                        <div class="children open" id="higiene-itens">
+
+                            <button class="tree-button tree-toggle tree-subtitle" type="button" data-toggle="corporal-itens" aria-expanded="true">
+                                <span class="tree-arrow">▼</span>
+                                <span>Corporal</span>
+                            </button>
+
+                            <div class="children open" id="corporal-itens">
+                                <button class="tree-button tree-procedure" type="button" data-coming-soon data-search-item>
+                                    <span class="tree-bullet">•</span>
+                                    <span>Banho de aspersão</span>
+                                </button>
+
+                                <button class="tree-button tree-procedure active" type="button" data-procedure="banho-leito" data-search-item>
+                                    <span class="tree-bullet">•</span>
+                                    <span>Banho de leito</span>
+                                </button>
+
+                                <button class="tree-button tree-procedure" type="button" data-coming-soon data-search-item>
+                                    <span class="tree-bullet">•</span>
+                                    <span>Banho de imersão</span>
+                                </button>
+                            </div>
+
+                            <button class="tree-button tree-toggle tree-subtitle" type="button" data-toggle="oral-itens" aria-expanded="false">
+                                <span class="tree-arrow">▶</span>
+                                <span>Oral</span>
+                            </button>
+                            <div class="children" id="oral-itens">
+                                <button class="tree-button tree-procedure" type="button" data-coming-soon data-search-item>
+                                    <span class="tree-bullet">•</span>
+                                    <span>Higiene oral</span>
+                                </button>
+                            </div>
+
+                            <button class="tree-button tree-toggle tree-subtitle" type="button" data-toggle="intima-itens" aria-expanded="false">
+                                <span class="tree-arrow">▶</span>
+                                <span>Íntima</span>
+                            </button>
+                            <div class="children" id="intima-itens">
+                                <button class="tree-button tree-procedure" type="button" data-coming-soon data-search-item>
+                                    <span class="tree-bullet">•</span>
+                                    <span>Higiene íntima</span>
+                                </button>
+                            </div>
+
+                            <button class="tree-button tree-procedure" type="button" data-coming-soon data-search-item>
+                                <span class="tree-bullet">•</span>
+                                <span>Tricotomia</span>
+                            </button>
+
+                            <button class="tree-button tree-procedure" type="button" data-coming-soon data-search-item>
+                                <span class="tree-bullet">•</span>
+                                <span>Nasal</span>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <!-- DEMAIS CATEGORIAS: ESTRUTURA INICIAL PARA COMPLETAR -->
+                    <button class="tree-button tree-category" type="button" data-coming-soon>
+                        <span class="tree-arrow">▶</span><span>🫁</span><span>Oxigenação</span>
+                    </button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon>
+                        <span class="tree-arrow">▶</span><span>🚽</span><span>Eliminação</span>
+                    </button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon>
+                        <span class="tree-arrow">▶</span><span>💧</span><span>Hidratação</span>
+                    </button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon>
+                        <span class="tree-arrow">▶</span><span>😴</span><span>Sono e repouso</span>
+                    </button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon>
+                        <span class="tree-arrow">▶</span><span>🚶</span><span>Locomoção</span>
+                    </button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon>
+                        <span class="tree-arrow">▶</span><span>❤️</span><span>Sexualidade</span>
+                    </button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon>
+                        <span class="tree-arrow">▶</span><span>👥</span><span>Gregária</span>
+                    </button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon>
+                        <span class="tree-arrow">▶</span><span>🩺</span><span>Sinais vitais</span>
+                    </button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon><span class="tree-arrow">▶</span><span>🚑</span><span>Transporte</span></button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon><span class="tree-arrow">▶</span><span>📋</span><span>Exame</span></button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon><span class="tree-arrow">▶</span><span>🏃</span><span>Exercício</span></button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon><span class="tree-arrow">▶</span><span>🧍</span><span>Postura</span></button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon><span class="tree-arrow">▶</span><span>⚙️</span><span>Regulação</span></button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon><span class="tree-arrow">▶</span><span>💊</span><span>Medicação</span></button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon><span class="tree-arrow">▶</span><span>🏥</span><span>Admissão</span></button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon><span class="tree-arrow">▶</span><span>🏁</span><span>Alta</span></button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon><span class="tree-arrow">▶</span><span>🔄</span><span>Transferência</span></button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon><span class="tree-arrow">▶</span><span>🤝</span><span>Ético/religioso</span></button>
+                    <button class="tree-button tree-category" type="button" data-coming-soon><span class="tree-arrow">▶</span><span>🎲</span><span>Recreação</span></button>
+
+                </nav>
+
+                <div class="sidebar-footer">
+                    <button type="button" data-coming-soon>🧮 Calculadora</button>
+                    <button type="button" data-coming-soon>❓ Ajuda</button>
+                </div>
+
+            </aside>
+
+
+            <!-- ÁREA DE TRABALHO -->
+            <main class="main-content">
+
+                <!-- TELA INICIAL: MOSTRA TODAS AS ANOTAÇÕES, DE TODAS AS CATEGORIAS -->
+                <section class="home-screen" id="homeScreen">
+                    <div class="home-heading">
+                        <div>
+                            <span class="section-label">VISÃO GERAL</span>
+                            <h1>Anotações registradas</h1>
+                            <p>Todos os registros salvos aparecem aqui, independentemente da categoria ou procedimento.</p>
+                        </div>
+
+                        <div class="home-actions">
+                            <button class="button secondary" type="button" id="copiarTodasAnotacoes" disabled>📋 COPIAR TODAS</button>
+                            <button class="button primary" type="button" id="baixarAnotacoes" disabled>⬇ BAIXAR .TXT</button>
+                        </div>
+                    </div>
+
+                    <div class="home-summary">
+                        <div>
+                            <span class="section-label">HISTÓRICO GERAL</span>
+                            <h2><span id="homeCount">0</span> anotações</h2>
+                        </div>
+                        <span class="home-summary-note">Registros mais recentes primeiro</span>
+                    </div>
+
+                    <div class="home-annotations" id="homeAnnotations" aria-live="polite">
+                        <p class="empty-home">Nenhuma anotação salva neste navegador. Depois de preencher um procedimento e clicar em SALVAR, o registro aparecerá aqui.</p>
+                    </div>
+                </section>
+
+                <!-- TELA DE PREENCHIMENTO DOS PROCEDIMENTOS -->
+                <section id="procedureWorkspace" hidden>
+                    <div class="breadcrumb" id="breadcrumb">
+                        Início <span>›</span> Higiene <span>›</span> Corporal <span>›</span> <strong>Banho de leito</strong>
+                    </div>
+
+                    <div class="workspace">
+
+                    <!-- =================================================
+                         COLUNA DE PREENCHIMENTO
+                    ================================================== -->
+                    <section class="form-area">
+
+                        <!-- FORMULÁRIO: BANHO DE LEITO
+                             Para criar outro procedimento, copie um bloco
+                             .procedure-screen e altere título, textos e opções.
+                        -->
+                        <form class="procedure-screen" id="form-banho-leito" data-form-name="Banho de leito" data-category="Higiene" data-breadcrumb="Higiene › Corporal › Banho de leito">
+
+                            <div class="form-heading">
+                                <div>
+                                    <span class="section-label">PREENCHIMENTO</span>
+                                    <h1>Banho de leito</h1>
+                                    <p>Preencha os campos para montar a anotação.</p>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+
+                                <p class="form-instruction">Preencha abaixo as informações:</p>
+
+                                <div class="form-fields">
+
+                                    <div class="form-row date-row">
+                                        <label for="banho-data">INSERIR DATA E HORA:</label>
+                                        <input class="date-input" id="banho-data" name="dataHora" type="datetime-local" required data-date-field>
+                                    </div>
+
+                                    <!-- Cada linha abaixo combina texto fixo e caixa de seleção.
+                                         A ordem dos elementos é a ordem da frase gerada. -->
+                                    <div class="form-row annotation-line">
+                                        <span>REALIZADO BANHO NO LEITO COM ÁGUA E</span>
+                                        <select name="produto" required data-annotation-field aria-label="Produto utilizado">
+                                            <option value="" selected disabled>Selecione</option>
+                                            <option>SABONETE</option>
+                                            <option>CLOREXIDINA DEGERMANTE</option>
+                                            <option>PVPI DEGERMANTE</option>
+                                        </select>
+                                        <span>,</span>
+                                    </div>
+
+                                    <div class="form-row annotation-line">
+                                        <select name="couroCabeludo" required data-annotation-field aria-label="Lavagem do couro cabeludo">
+                                            <option value="" selected disabled>Selecione</option>
+                                            <option>SENDO</option>
+                                            <option>NÃO SENDO</option>
+                                        </select>
+                                        <span>LAVADO COURO CABELUDO,</span>
+                                    </div>
+
+                                    <div class="form-row annotation-line">
+                                        <span>PACIENTE</span>
+                                        <select name="comportamento" required data-annotation-field aria-label="Comportamento do paciente">
+                                            <option value="" selected disabled>Selecione</option>
+                                            <option>COLABORATIVO</option>
+                                            <option>POUCO COLABORATIVO</option>
+                                            <option>NÃO COLABORATIVO</option>
+                                        </select>
+                                        <span>.</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-actions">
+                                    <button class="button secondary" type="reset">LIMPAR</button>
+                                    <button class="button primary" type="button" data-finalize>FINALIZAR</button>
+                                </div>
+
+                            </div>
+                        </form>
+
+
+                        <!-- FORMULÁRIO: DIETA ORAL -->
+                        <form class="procedure-screen" id="form-dieta-oral" data-form-name="Dieta oral" data-category="Nutrição" data-breadcrumb="Nutrição › Dieta oral">
+
+                            <div class="form-heading">
+                                <div>
+                                    <span class="section-label">PREENCHIMENTO</span>
+                                    <h1>Dieta oral</h1>
+                                    <p>Preencha os campos para montar a anotação.</p>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+
+                                <p class="form-instruction">Preencha abaixo as informações:</p>
+
+                                <div class="form-fields">
+
+                                    <div class="form-row date-row">
+                                        <label for="dieta-data">INSERIR DATA E HORA:</label>
+                                        <input class="date-input" id="dieta-data" name="dataHora" type="datetime-local" required data-date-field>
+                                    </div>
+
+                                    <div class="form-row annotation-line">
+                                        <span>FORNECIDO ALIMENTAÇÃO</span>
+                                        <select name="responsavel" required data-annotation-field aria-label="Responsável pela alimentação">
+                                            <option value="" selected disabled>Selecione</option>
+                                            <option>PELO ACOMPANHANTE</option>
+                                            <option>PELA EQUIPE DE ENFERMAGEM</option>
+                                            <option>PELO PACIENTE</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-row annotation-line">
+                                        <span>NA CONSISTÊNCIA</span>
+                                        <select name="consistencia" required data-annotation-field aria-label="Consistência da dieta">
+                                            <option value="" selected disabled>Selecione</option>
+                                            <option>BRANDA</option>
+                                            <option>PASTOSA</option>
+                                            <option>LÍQUIDA</option>
+                                            <option>GERAL</option>
+                                        </select>
+                                        <span>, VIA ORAL.</span>
+                                    </div>
+
+                                    <div class="form-row annotation-line">
+                                        <span>PACIENTE NA POSIÇÃO</span>
+                                        <select name="posicao" required data-annotation-field aria-label="Posição do paciente">
+                                            <option value="" selected disabled>Selecione</option>
+                                            <option>DECÚBITO ELEVADO 60°</option>
+                                            <option>POSIÇÃO DE FOWLER</option>
+                                            <option>SENTADO</option>
+                                        </select>
+                                        <span>.</span>
+                                    </div>
+
+                                    <div class="form-row annotation-line">
+                                        <span>ACEITOU</span>
+                                        <select name="aceitacao" required data-annotation-field aria-label="Aceitação da dieta">
+                                            <option value="" selected disabled>Selecione</option>
+                                            <option>100%</option>
+                                            <option>75%</option>
+                                            <option>50%</option>
+                                            <option>25%</option>
+                                            <option>0%</option>
+                                        </select>
+                                        <span>DA DIETA.</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-actions">
+                                    <button class="button secondary" type="reset">LIMPAR</button>
+                                    <button class="button primary" type="button" data-finalize>FINALIZAR</button>
+                                </div>
+
+                            </div>
+                        </form>
+
+
+                        <!-- MENSAGEM PARA ITENS AINDA NÃO IMPLEMENTADOS -->
+                        <section class="empty-screen" id="emptyScreen" hidden>
+                            <div class="empty-icon">📋</div>
+                            <h1>Procedimento ainda não configurado</h1>
+                            <p>Este item está na estrutura do menu, mas seu formulário ainda precisa ser preenchido.</p>
+                            <p class="empty-tip">Para adicionar um procedimento, copie um dos formulários existentes no arquivo <strong>i.html</strong> e altere os textos e as opções.</p>
+                        </section>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         COLUNA DA ANOTAÇÃO / PRÉVIA
+                    ================================================== -->
+                    <aside class="annotation-panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="section-label">RESULTADO</span>
+                                <h2>Anotação</h2>
+                            </div>
+                            <span class="preview-indicator" id="previewIndicator">Aguardando</span>
+                        </div>
+
+                        <p class="panel-description">A anotação será montada aqui após clicar em FINALIZAR.</p>
+
+                        <textarea id="textoAnotacao" class="annotation-output" placeholder="A anotação final aparecerá aqui..." readonly></textarea>
+
+                        <p class="annotation-status" id="annotationStatus" aria-live="polite">Preencha os campos e clique em FINALIZAR.</p>
+
+                        <div class="panel-actions">
+                            <button class="button secondary" type="button" id="copiarAnotacao" disabled>📋 COPIAR</button>
+                            <button class="button primary" type="button" id="salvarAnotacao" disabled>💾 SALVAR</button>
+                        </div>
+
+                        <div class="saved-section">
+                            <div class="saved-heading">
+                                <h3>Anotações salvas</h3>
+                                <span id="savedCount">0</span>
+                            </div>
+                            <div class="saved-list" id="listaAnotacoes">
+                                <p class="empty-history">Nenhuma anotação salva neste navegador.</p>
+                            </div>
+                        </div>
+
+                    </aside>
+
+                </div>
+                </section><!-- /procedureWorkspace -->
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <script src="/script/script.js"></script>
+</body>
+</html>
