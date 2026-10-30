@@ -34,6 +34,22 @@ const homeAnnotations = document.getElementById("homeAnnotations");
 const homeCount = document.getElementById("homeCount");
 const botaoCopiarTodas = document.getElementById("copiarTodasAnotacoes");
 const botaoBaixarAnotacoes = document.getElementById("baixarAnotacoes");
+const sidebar = document.getElementById("sidebar");
+const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+
+// Abre e fecha o menu de categorias em telas menores.
+mobileMenuToggle.addEventListener("click", () => {
+    const menuAberto = sidebar.classList.toggle("mobile-open");
+
+    mobileMenuToggle.setAttribute("aria-expanded", String(menuAberto));
+    mobileMenuToggle.textContent = menuAberto ? "✕ Fechar categorias" : "☰ Categorias";
+});
+
+function fecharMenuMobile() {
+    sidebar.classList.remove("mobile-open");
+    mobileMenuToggle.setAttribute("aria-expanded", "false");
+    mobileMenuToggle.textContent = "☰ Categorias";
+}
 
 let formularioAtual = null;
 let anotacaoFinalizada = false;
@@ -103,6 +119,7 @@ function marcarMenuAtivo(botaoAtivo) {
 }
 
 function abrirInicio() {
+    fecharMenuMobile();
     formularioAtual = null;
 
     document.querySelectorAll(".procedure-screen").forEach(formulario => {
@@ -124,6 +141,7 @@ botaoInicio.addEventListener("click", abrirInicio);
 ========================================================= */
 
 function abrirProcedimento(idFormulario, botaoMenu) {
+    fecharMenuMobile();
     document.querySelectorAll(".procedure-screen").forEach(formulario => {
         formulario.classList.remove("active");
     });
@@ -188,6 +206,8 @@ document.querySelectorAll("[data-procedure]").forEach(botao => {
 // Itens de menu ainda sem formulário exibem uma mensagem de orientação.
 document.querySelectorAll("[data-coming-soon]").forEach(botao => {
     botao.addEventListener("click", () => {
+        fecharMenuMobile();
+
         if (botao.classList.contains("tree-procedure")) {
             marcarMenuAtivo(botao);
         }

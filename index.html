@@ -28,6 +28,17 @@
                 </div>
             </div>
 
+            <!-- Botão exibido apenas em telas menores para abrir as categorias. -->
+            <button
+                class="mobile-menu-toggle"
+                id="mobileMenuToggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="sidebar"
+            >
+                ☰ Categorias
+            </button>
+
             <div class="search">
                 <span>🔎</span>
                 <input
@@ -55,7 +66,7 @@
         <div class="layout">
 
             <!-- MENU LATERAL -->
-            <aside class="sidebar">
+            <aside class="sidebar" id="sidebar">
 
                 <div class="sidebar-title">
                     <small>NAVEGAÇÃO</small>
@@ -102,7 +113,7 @@
                             </button>
 
                             <div class="children open" id="corporal-itens">
-                                <button class="tree-button tree-procedure" type="button" data-procedure="banho-aspersao" data-search-item>
+                                <button class="tree-button tree-procedure" type="button" data-coming-soon data-search-item>
                                     <span class="tree-bullet">•</span>
                                     <span>Banho de aspersão</span>
                                 </button>
